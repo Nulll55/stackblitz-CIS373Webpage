@@ -21,13 +21,14 @@
       align-items: center;
     }
     .nav-links a {
+      order: 2;
       margin: 0 8px;
       text-decoration: none;
       color: black;
       font-size: 14px;
     }
     .logo {
-      font-weight: bold;
+      order: 1;
     }
     .hero {
       background-color: #eaeaea;
@@ -78,15 +79,20 @@
 </head>
 <body>
   <header>
-    <div class="logo">BOOK ICON</div>
-    <nav class="nav-links">
-      <a href="index.html">Home</a> |
-      <a href="gallery.html">Gallery</a> |
-      <a href="about.html">About Us</a> |
-      <a href="newrelease.html">New Releases</a> |
-      <a href="#">Contact</a> |
+    <div class="logo">
+      <img src="BOOK_LOGO.png" alt="Book Haven" />
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="gallery.html">Gallery</a>
+      <a href="about.html">About Us</a>
+      <a href="new-releases.html">New Releases</a>
+      <a href="contact.html">Contact</a>
       <a href="cart.html">View Cart</a>
     </nav>
+    <div class="cart">
+      <img src="cart-icon.png" alt="Cart" />
+    </div>
   </header>
 
   <section class="hero">
