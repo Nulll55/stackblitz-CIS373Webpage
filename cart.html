@@ -76,9 +76,6 @@
       cursor: pointer;
       border-radius: 4px;
     }
-    .checkout-btn:hover {
-      background-color: #218838;
-    }
     footer {
       background-color: #e5e5e5;
       padding: 20px;
@@ -89,6 +86,39 @@
       margin: 5px;
       font-size: 12px;
       color: #333;
+    }
+
+    .newsletter input[type="email"] {
+      padding: 8px;
+      margin-top: 5px;
+      margin-bottom: 10px;
+      width: 200px;
+      border: 1px solid #aaa;
+      border-radius: 4px;
+    }
+
+    .newsletter button {
+      padding: 8px 16px;
+      border: none;
+      background-color: #888;
+      color: white;
+      border-radius: 4px;
+    }
+    .footer-button {
+      display: inline-block;
+      padding: 10px 20px;
+      margin: 5px;
+      background-color: #888;
+      color: white;
+      text-decoration: none;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .footer-button:hover {
+      background-color: #888;
     }
   </style>
 </head>
@@ -143,10 +173,10 @@
   <a href="cart.html" class="checkout-btn">Proceed to Checkout</a>
   <footer>
     <div class="footer-links">
-      <button>Home</button>
-      <button>Gallery</button>
-      <button>About us</button>
-      <button>New releases</button>
+      <a href="index.html" class="footer-button">Home</a>
+      <a href="gallery.html" class="footer-button">Gallery</a>
+      <a href="aboutus.html" class="footer-button">About Us</a>
+      <a href="newrelease.html" class="footer-button">New Releases</a>
     </div>
     <div class="newsletter">
       <p><strong>Subscribe to our newsletter</strong></p>
