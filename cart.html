@@ -1,19 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Other page</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f2f2f2;
+    }
+    header {
+      background-color: #e5e5e5;
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      order: 1;
+
+    }
+    .logo img {
+      height: 40px;
+
+    }
+    nav {
+      order: 2;
+    }
+    nav a {
+      margin: 0 8px;
+      text-decoration: none;
+      color: #000;
+      font-size: 14px;
+
+    }
+    .cart {
+      order: 3;
+    }
+    .cart img {
+      height: 40px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 20px;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background-color: #f4f4f4;
+    }
+    .total {
+      font-weight: bold;
+      text-align: right;
+    }
+    .checkout-btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #28a745;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    .checkout-btn:hover {
+      background-color: #218838;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="BOOK_LOGO.png" alt="Book Haven" />
+    </div>
     <nav>
-      <a href="/">Home</a>
-      <a href="/page2.html" aria-current="page">Other page</a>
+      <a href="index.html">Home   |</a>
+      <a href="gallery.html">Gallery   |</a>
+      <a href="about.html">About Us   |</a>
+      <a href="newrelease.html">New Releases   |</a>
+      <a href="contact.html">Contact   |</a>
+      <a href="cart.html">View Cart</a>
     </nav>
-    <main>
-      <h1>My other page</h1>
-    </main>
-  </body>
+    <div class="cart">
+      <img src="cart.png" alt="Cart" />
+    </div>
+  </header>
+  <h1>Your Shopping Cart</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Subtotal</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Product 1</td>
+        <td>2</td>
+        <td>$10.00</td>
+        <td>$20.00</td>
+      </tr>
+      <tr>
+        <td>Product 2</td>
+        <td>1</td>
+        <td>$15.00</td>
+        <td>$15.00</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="3" class="total">Total:</td>
+        <td>$35.00</td>
+      </tr>
+    </tfoot>
+  </table>
+  <a href="cart.html" class="checkout-btn">Proceed to Checkout</a>
+  <footer>
+    <div class="footer-links">
+      <button>Home</button>
+      <button>Gallery</button>
+      <button>About us</button>
+      <button>New releases</button>
+    </div>
+    <div class="newsletter">
+      <p><strong>Subscribe to our newsletter</strong></p>
+      <input type="email" placeholder="Email" />
+      <br />
+      <button>Subscribe</button>
+    </div>
+    <p>© 2020 – 2030 Book Haven Bookstore</p>
+    <p>Privacy — Terms</p>
+  </footer>
+</body>
 </html>
