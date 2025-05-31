@@ -5,120 +5,143 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Shopping Cart</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
+  
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Comfortaa', Arial, Calibri, sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f2f2f2;
+      background-color: #FAF3E0; /* Parchment White */
+      color: #36393B; /* Inkwell Blue */
+      font-size: 18px;
     }
+  
     header {
-      background-color: #e5e5e5;
-      padding: 10px 20px;
+      background-color: #4B3F72; /* Intensity Indigo */
+      padding: 20px 30px;
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
-
-    .logo {
-      order: 1;
-
-    }
+  
     .logo img {
-      height: 40px;
-
+      height: 60px;
     }
-    nav {
-      order: 2;
-    }
+  
     nav a {
-      margin: 0 8px;
+      margin: 0 12px;
       text-decoration: none;
-      color: #000;
-      font-size: 14px;
-
+      color: #FAF3E0;
+      font-size: 18px;
+      font-weight: bold;
     }
-    .cart {
-      order: 3;
+  
+    nav a:hover {
+      color: #D4AF37; /* Aged Gold */
     }
+  
     .cart img {
       height: 40px;
     }
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-bottom: 20px;
-    }
-    th, td {
-      border: 1px solid #ddd;
-      padding: 10px;
-      text-align: left;
-    }
-    th {
-      background-color: #f4f4f4;
-    }
-    .total {
-      font-weight: bold;
-      text-align: right;
-    }
-    .checkout-btn {
-      display: inline-block;
-      padding: 10px 20px;
-      background-color: #28a745;
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
-    }
-    button {
-      background-color: #000;
-      color: #fff;
-      border: none;
-      padding: 8px 12px;
-      cursor: pointer;
-      border-radius: 4px;
-    }
-    footer {
-      background-color: #e5e5e5;
-      padding: 20px;
+  
+    .hero {
+      background-color: #C48189; /* Dusty Rose */
       text-align: center;
-      margin-top: 40px;
+      padding: 70px 20px;
+      color: #FAF3E0;
     }
-    footer p {
-      margin: 5px;
-      font-size: 12px;
-      color: #333;
+  
+    .hero h1 {
+      font-size: 48px;
+      margin: 0;
     }
-
-    .newsletter input[type="email"] {
-      padding: 8px;
-      margin-top: 5px;
-      margin-bottom: 10px;
-      width: 200px;
-      border: 1px solid #aaa;
-      border-radius: 4px;
+  
+    .hero p {
+      margin: 12px 0 0;
+      font-size: 22px;
+      color: #FAF3E0;
     }
-
-    .newsletter button {
-      padding: 8px 16px;
+  
+    .section {
+      padding: 30px;
+    }
+  
+    .book-item {
+      background: #FFFFFF;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+  
+    .book-info {
+      flex-grow: 1;
+    }
+  
+    button {
+      background-color: #4B3F72;
+      color: #FAF3E0;
       border: none;
-      background-color: #888;
-      color: white;
-      border-radius: 4px;
-    }
-    .footer-button {
-      display: inline-block;
-      padding: 10px 20px;
-      margin: 5px;
-      background-color: #888;
-      color: white;
-      text-decoration: none;
-      border: none;
-      border-radius: 5px;
+      padding: 10px 16px;
       font-size: 16px;
       cursor: pointer;
+      border-radius: 6px;
     }
-
+  
+    button:hover {
+      background-color: #36393B;
+    }
+  
+    footer {
+      background-color: #4B3F72;
+      padding: 25px;
+      text-align: center;
+      margin-top: 50px;
+      color: #FAF3E0;
+    }
+  
+    footer p {
+      margin: 5px;
+      font-size: 16px;
+    }
+  
+    .newsletter input[type="email"] {
+      padding: 10px;
+      margin-top: 10px;
+      margin-bottom: 12px;
+      width: 220px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+  
+    .newsletter button {
+      padding: 10px 18px;
+      border: none;
+      background-color: #D4AF37; /* Aged Gold */
+      color: #36393B;
+      border-radius: 4px;
+      font-weight: bold;
+    }
+  
+    .footer-button {
+      display: inline-block;
+      padding: 12px 24px;
+      margin: 10px 6px;
+      background-color: #D4AF37;
+      color: #36393B;
+      text-decoration: none;
+      border: none;
+      border-radius: 6px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+  
     .footer-button:hover {
-      background-color: #888;
+      background-color: #C48189;
+      color: white;
     }
   </style>
 </head>
