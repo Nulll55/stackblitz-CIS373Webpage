@@ -1,35 +1,37 @@
 <!-- Book Havevn Bookstore home page - containg header, about author, 3 books on dispaly -->
-<!-- EMMA KAILANI TIRADO 05.03.2025 CIS373 MILESTONE 2  -->
+<!-- Book Haven Bookstore Home Page with JavaScript Features -->
+<!-- EMMA KAILANI TIRADO 06.04.2025 CIS373 TOUCHSTONE TASK 3.1 -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Book Haven | Home</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
-  
+
     body {
       font-family: 'Comfortaa', Arial, Calibri, sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #FFF7EE; /* Parchment White */
-      color: #2E4057; /* Inkwell Blue */
+      background-color: #FFF7EE;
+      color: #2E4057;
       font-size: 18px;
     }
-  
+
     header {
-      background-color: #2E4057; /* Inkwell Blue */
+      background-color: #2E4057;
       padding: 20px 30px;
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
-  
+
     .logo img {
       height: 60px;
     }
-  
+
     nav a {
       margin: 0 12px;
       text-decoration: none;
@@ -37,37 +39,37 @@
       font-size: 18px;
       font-weight: bold;
     }
-  
+
     nav a:hover {
-      color: #C7B65E; /* Aged Gold */
+      color: #C7B65E;
     }
-  
+
     .cart img {
       height: 60px;
     }
-  
+
     .hero {
-      background-color: #F7B3CC; /* Dusty Rose */
+      background-color: #F7B3CC;
       text-align: center;
       padding: 70px 20px;
       color: #FAF3E0;
     }
-  
+
     .hero h1 {
       font-size: 48px;
       margin: 0;
     }
-  
+
     .hero p {
       margin: 12px 0 0;
       font-size: 22px;
       color: #FAF3E0;
     }
-  
+
     .section {
       padding: 30px;
     }
-  
+
     .book-item {
       background: #FFFFFF;
       padding: 20px;
@@ -78,13 +80,13 @@
       gap: 20px;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     }
-  
+
     .book-info {
       flex-grow: 1;
     }
-  
+
     button {
-      background-color: #2E4057; /* Inkwell Blue */
+      background-color: #2E4057;
       color: #FAF3E0;
       border: none;
       padding: 10px 16px;
@@ -92,24 +94,24 @@
       cursor: pointer;
       border-radius: 6px;
     }
-  
+
     button:hover {
       background-color: #36393B;
     }
-  
+
     footer {
-      background-color: #2E4057; /* Inkwell Blue */
+      background-color: #2E4057;
       padding: 25px;
       text-align: center;
       margin-top: 50px;
       color: #FAF3E0;
     }
-  
+
     footer p {
       margin: 5px;
       font-size: 16px;
     }
-  
+
     .newsletter input[type="email"] {
       padding: 10px;
       margin-top: 10px;
@@ -118,21 +120,21 @@
       border: 1px solid #ccc;
       border-radius: 4px;
     }
-  
+
     .newsletter button {
       padding: 10px 18px;
       border: none;
-      background-color: #C7B65E; /* Aged Gold */
+      background-color: #C7B65E;
       color: #36393B;
       border-radius: 4px;
       font-weight: bold;
     }
-  
+
     .footer-button {
       display: inline-block;
       padding: 12px 24px;
       margin: 10px 6px;
-      background-color: #C7B65E; /* Aged Gold */
+      background-color: #C7B65E;
       color: #36393B;
       text-decoration: none;
       border: none;
@@ -140,9 +142,9 @@
       font-size: 18px;
       cursor: pointer;
     }
-  
+
     .footer-button:hover {
-      background-color: #C7B65E; /* Aged Gold */
+      background-color: #C7B65E;
       color: white;
     }
   </style>
@@ -152,7 +154,6 @@
     <div class="logo">
       <img src="BOOK.LOGO.png" alt="Book Haven" />
     </div>
-    <!-- main navigation bar start here --> 
     <nav>
       <a href="index.html">Home</a>
       <a href="gallery.html">Gallery</a>
@@ -160,7 +161,6 @@
       <a href="newrelease.html">New Releases</a>
       <a href="cart.html">View Cart</a>
     </nav>
-    <!-- main navigation bar end here --> 
     <div class="cart">
       <img src="CART.png" alt="Cart" />
     </div>
@@ -182,18 +182,18 @@
       <div class="book-info">
         <strong>Most popular this month</strong>
         <p>Sorcerer's Shadowed Chronicles, a fantasy book</p>
-        <button>Add to Cart</button> <strong>$25.00</strong>
+        <button onclick="addToCart()">Add to Cart</button> <strong>$25.00</strong>
       </div>
     </div>
 
     <div class="book-item">
       <div class="image">
-        <img src="Client3_Magazine3.png" alt="Client3_Magazine2">
+        <img src="Client3_Magazine3.png" alt="Client3_Magazine3">
       </div>
       <div class="book-info">
         <strong>Editors pick 30% off</strong>
         <p>Eat., a magazine for foodies</p>
-        <button>Add to Cart</button> <strong>$10.00</strong>
+        <button onclick="addToCart()">Add to Cart</button> <strong>$10.00</strong>
       </div>
     </div>
 
@@ -204,12 +204,11 @@
       <div class="book-info">
         <strong>For our sports lovers</strong>
         <p>Ball, a magazine about pickleball</p>
-        <button>Add to Cart</button> <strong>$20.00</strong>
+        <button onclick="addToCart()">Add to Cart</button> <strong>$20.00</strong>
       </div>
     </div>
   </section>
 
-  <!-- main footer bar start here --> 
   <footer>
     <div class="footer-links">
       <a href="index.html" class="footer-button">Home</a>
@@ -219,13 +218,28 @@
     </div>
     <div class="newsletter">
       <p><strong>Subscribe to our newsletter</strong></p>
-      <input type="email" placeholder="Email" />
+      <input type="email" id="subscribeEmail" placeholder="Email" />
       <br />
-      <button>Subscribe</button>
+      <button onclick="subscribe()">Subscribe</button>
     </div>
     <p>© 2020 – 2030 Book Haven Bookstore</p>
     <p>Privacy — Terms</p>
   </footer>
-  <!-- main footer bar end here --> 
+
+  <!-- JavaScript Functions -->
+  <script>
+    function addToCart() {
+      alert("Item added to the cart.");
+    }
+
+    function subscribe() {
+      const email = document.getElementById("subscribeEmail").value;
+      if (email.trim() === "") {
+        alert("Please fill out this field.");
+      } else {
+        alert("Thank you for subscribing.");
+      }
+    }
+  </script>
 </body>
 </html>
