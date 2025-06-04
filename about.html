@@ -172,19 +172,35 @@
 
   <footer>
     <div class="footer-links">
-      <a href="#" class="footer-button">Home</a>
-      <a href="" class="footer-button">Gallery</a>
+      <a href="index.html" class="footer-button">Home</a>
+      <a href="gallery.html" class="footer-button">Gallery</a>
       <a href="about.html" class="footer-button">About Us</a>
       <a href="newrelease.html" class="footer-button">New Releases</a>
     </div>
     <div class="newsletter">
       <p><strong>Subscribe to our newsletter</strong></p>
-      <input type="email" placeholder="Email">
-      <br>
-      <button>Subscribe</button>
+      <input type="email" id="subscribeEmail" placeholder="Email" />
+      <br />
+      <button onclick="subscribe()">Subscribe</button>
     </div>
     <p>© 2020 – 2030 Book Haven Bookstore</p>
     <p>Privacy — Terms</p>
   </footer>
+
+  <!-- JavaScript Functions -->
+  <script>
+    function addToCart() {
+      alert("Item added to the cart.");
+    }
+
+    function subscribe() {
+      const email = document.getElementById("subscribeEmail").value;
+      if (email.trim() === "") {
+        alert("Please fill out this field.");
+      } else {
+        alert("Thank you for subscribing.");
+      }
+    }
+  </script>
 </body>
 </html>

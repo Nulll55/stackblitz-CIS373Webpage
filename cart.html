@@ -205,12 +205,28 @@
     </div>
     <div class="newsletter">
       <p><strong>Subscribe to our newsletter</strong></p>
-      <input type="email" placeholder="Email" />
+      <input type="email" id="subscribeEmail" placeholder="Email" />
       <br />
-      <button>Subscribe</button>
+      <button onclick="subscribe()">Subscribe</button>
     </div>
     <p>© 2020 – 2030 Book Haven Bookstore</p>
     <p>Privacy — Terms</p>
   </footer>
+
+  <!-- JavaScript Functions -->
+  <script>
+    function addToCart() {
+      alert("Item added to the cart.");
+    }
+
+    function subscribe() {
+      const email = document.getElementById("subscribeEmail").value;
+      if (email.trim() === "") {
+        alert("Please fill out this field.");
+      } else {
+        alert("Thank you for subscribing.");
+      }
+    }
+  </script>
 </body>
 </html>
