@@ -272,6 +272,15 @@
         alert("Thank you for subscribing.");
       }
     }
+
+    function clearCart() {
+      if (cart.length > 0) {
+        cart = [];
+        alert("Cart Cleared");
+      } else {
+        alert("No items to clear.");
+      }
+    }
   </script>
 </body>
 </html>
