@@ -1,11 +1,14 @@
 <!-- Gallery page  --> 
-<!-- EMMA KAILANI TIRADO 05.03.2025 CIS373 MILESTONE 2  -->
+<!-- Updated Gallery page with wireframe-aligned layout -->
+<!-- EMMA KAILANI TIRADO 06.04.2025 CIS373 TOUCHSTONE TASK 3.1 -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Shop | Book Haven</title>
+  <!-- STYLE START -->
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Comfortaa&display=swap');
 
@@ -134,6 +137,28 @@
       background-color: #36393B;
     }
 
+    .cart-buttons {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .cart-buttons button {
+      background-color: #C7B65E;
+      color: #2E4057;
+      font-weight: bold;
+      border: none;
+      padding: 12px 20px;
+      font-size: 16px;
+      border-radius: 6px;
+      margin: 10px;
+      cursor: pointer;
+    }
+
+    .cart-buttons button:hover {
+      background-color: #2E4057;
+      color: #FAF3E0;
+    }
+
     footer {
       background-color: #2E4057;
       padding: 25px;
@@ -154,37 +179,20 @@
       font-size: 18px;
       cursor: pointer;
     }
-    .cart-buttons button {
-      background-color: #C7B65E;
-      color: #2E4057;
-      font-weight: bold;
-      border: none;
-      padding: 12px 20px;
-      font-size: 16px;
-      border-radius: 6px;
-      margin: 10px;
-      cursor: pointer;
-    }
-
-    .cart-buttons button:hover {
-      background-color: #2E4057;
-      color: #FAF3E0;
-    }
   </style>
+  <!-- STYLE END -->
 </head>
 <body>
   <header>
     <div class="logo">
       <img src="BOOK.LOGO.png" alt="Book Haven" />
     </div>
-    <!-- main navigation bar start here --> 
     <nav>
       <a href="index.html">Home</a>
       <a href="gallery.html">Gallery</a>
       <a href="about.html">About Us</a>
       <a href="newrelease.html">New Releases</a>
     </nav>
-    <!-- main navigation bar end here --> 
     <div class="cart">
       <img src="CART.png" alt="Cart" />
     </div>
@@ -219,46 +227,47 @@
             <img src="Client3_Book3.png" alt="Sorcerer’s Shadowed Chronicles">
             <h4>Sorcerer’s Shadowed Chronicles</h4>
             <p>$25.00</p>
-            <button onclick="addToCart()">Add to Cart</button>
+            <button onclick="addToCart('Sorcerer’s Shadowed Chronicles')">Add to Cart</button>
           </div>
           <div class="product-card">
             <img src="Client3_Book2.png" alt="Glory Riders">
             <h4>Glory Riders</h4>
             <p>$15.00</p>
-            <button onclick="addToCart()">Add to Cart</button>
+            <button onclick="addToCart('Glory Riders')">Add to Cart</button>
           </div>
           <div class="product-card">
             <img src="Client3_Book1.png" alt="Brie Mine 4Ever">
             <h4>Brie Mine 4Ever</h4>
             <p>$20.00</p>
-            <button onclick="addToCart()">Add to Cart</button>
+            <button onclick="addToCart('Brie Mine 4Ever')">Add to Cart</button>
           </div>
           <div class="product-card">
             <img src="Client3_Magazine3.png" alt="Travel Magazine">
             <h4>Travel Magazine</h4>
             <p>$10.00</p>
-            <button onclick="addToCart()">Add to Cart</button>
+            <button onclick="addToCart('Travel Magazine')">Add to Cart</button>
           </div>
           <div class="product-card">
             <img src="Client3_ToteBag.png" alt="Tote Bag">
             <h4>Book Haven Tote Bag</h4>
             <p>$15.00</p>
-            <button onclick="addToCart()">Add to Cart</button>
+            <button onclick="addToCart('Book Haven Tote Bag')">Add to Cart</button>
           </div>
           <div class="product-card">
             <img src="Client3_Stickers.png" alt="Sticker Pack">
             <h4>Four Pack Stickers</h4>
             <p>$5.00</p>
-            <button onclick="addToCart()">Add to Cart</button>
+            <button onclick="addToCart('Four Pack Stickers')">Add to Cart</button>
           </div>
         </div>
       </section>
     </div>
   </main>
 
-  <div class="cart-buttons" style="text-align: center; margin-top: 30px;">
+  <div class="cart-buttons">
     <button onclick="clearCart()">Clear Cart</button>
     <button onclick="processOrder()">Process Order</button>
+    <button onclick="viewCart()">View Cart</button>
   </div>
 
   <footer>
@@ -278,15 +287,24 @@
     <p>Privacy — Terms</p>
   </footer>
 
+  <!-- Modal for Cart -->
+  <div id="cartModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.6); z-index:999;">
+    <div style="background-color:#FFF7EE; margin:10% auto; padding:30px; width:80%; max-width:500px; border-radius:12px; position:relative; box-shadow:0 2px 8px rgba(0,0,0,0.3); color:#2E4057; font-family:'Comfortaa';">
+      <h2 style="margin-top:0;">🛒 Your Cart</h2>
+      <ul id="cartItems" style="list-style:none; padding-left:0; margin-bottom:20px;"></ul>
+      <button onclick="closeModal()" style="padding:10px 20px; background-color:#C7B65E; color:#2E4057; border:none; border-radius:6px; cursor:pointer; font-weight:bold;">Close</button>
+    </div>
+  </div>
+
   <!-- JavaScript Functions -->
   <script>
     const cart = [];
-  
-    function addToCart() {
-      cart.push("item");
+
+    function addToCart(itemName = "Item") {
+      cart.push(itemName);
       alert("Item added to the cart.");
     }
-  
+
     function clearCart() {
       if (cart.length > 0) {
         cart.length = 0;
@@ -295,7 +313,7 @@
         alert("No items to clear.");
       }
     }
-  
+
     function processOrder() {
       if (cart.length > 0) {
         alert("Thank you for your order!");
@@ -304,7 +322,28 @@
         alert("Cart is empty.");
       }
     }
-  
+
+    function viewCart() {
+      if (cart.length === 0) {
+        alert("Cart is empty.");
+        return;
+      }
+      const modal = document.getElementById("cartModal");
+      const cartList = document.getElementById("cartItems");
+      cartList.innerHTML = "";
+      cart.forEach((item, index) => {
+        const li = document.createElement("li");
+        li.textContent = `${index + 1}. ${item}`;
+        li.style.padding = "6px 0";
+        cartList.appendChild(li);
+      });
+      modal.style.display = "block";
+    }
+
+    function closeModal() {
+      document.getElementById("cartModal").style.display = "none";
+    }
+
     function subscribe() {
       const email = document.getElementById("subscribeEmail").value;
       if (email.trim() === "") {
