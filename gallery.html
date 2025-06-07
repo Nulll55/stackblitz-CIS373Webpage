@@ -154,6 +154,22 @@
       font-size: 18px;
       cursor: pointer;
     }
+    .cart-buttons button {
+      background-color: #C7B65E;
+      color: #2E4057;
+      font-weight: bold;
+      border: none;
+      padding: 12px 20px;
+      font-size: 16px;
+      border-radius: 6px;
+      margin: 10px;
+      cursor: pointer;
+    }
+
+    .cart-buttons button:hover {
+      background-color: #2E4057;
+      color: #FAF3E0;
+    }
   </style>
 </head>
 <body>
@@ -241,6 +257,11 @@
     </div>
   </main>
 
+  <div class="cart-buttons" style="text-align: center; margin-top: 30px;">
+    <button onclick="clearCart()">Clear Cart</button>
+    <button onclick="processOrder()">Process Order</button>
+  </div>
+
   <footer>
     <div class="footer-links">
       <a href="index.html" class="footer-button">Home</a>
@@ -261,12 +282,12 @@
   <!-- JavaScript Functions -->
   <script>
     const cart = [];
-
+  
     function addToCart() {
       cart.push("item");
       alert("Item added to the cart.");
     }
-
+  
     function clearCart() {
       if (cart.length > 0) {
         cart.length = 0;
@@ -275,7 +296,7 @@
         alert("No items to clear.");
       }
     }
-
+  
     function processOrder() {
       if (cart.length > 0) {
         alert("Thank you for your order!");
@@ -284,22 +305,13 @@
         alert("Cart is empty.");
       }
     }
-
+  
     function subscribe() {
       const email = document.getElementById("subscribeEmail").value;
       if (email.trim() === "") {
         alert("Please fill out this field.");
       } else {
         alert("Thank you for subscribing.");
-      }
-    }
-
-    function clearCart() {
-      if (cart.length > 0) {
-        cart = [];
-        alert("Cart Cleared");
-      } else {
-        alert("No items to clear.");
       }
     }
   </script>
