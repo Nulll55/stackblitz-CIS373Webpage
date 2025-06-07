@@ -260,8 +260,29 @@
 
   <!-- JavaScript Functions -->
   <script>
+    const cart = [];
+
     function addToCart() {
+      cart.push("item");
       alert("Item added to the cart.");
+    }
+
+    function clearCart() {
+      if (cart.length > 0) {
+        cart.length = 0;
+        alert("Cart Cleared");
+      } else {
+        alert("No items to clear.");
+      }
+    }
+
+    function processOrder() {
+      if (cart.length > 0) {
+        alert("Thank you for your order!");
+        cart.length = 0;
+      } else {
+        alert("Cart is empty.");
+      }
     }
 
     function subscribe() {
