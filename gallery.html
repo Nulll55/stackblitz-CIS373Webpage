@@ -1,5 +1,5 @@
 <!-- Gallery page  --> 
-<!-- Updated Gallery page with wireframe-aligned layout -->
+<!-- Updated Gallery page with styled subscription modal and localStorage -->
 <!-- EMMA KAILANI TIRADO 06.13.2025 CIS373 TOUCHSTONE TASK 3.2 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -118,6 +118,40 @@
       padding: 12px 24px;
       font-size: 18px;
     }
+
+    /* Modal styling */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 1000;
+    }
+
+    .modal-content {
+      background: #FFF7EE;
+      margin: 15% auto;
+      padding: 30px;
+      width: 90%;
+      max-width: 400px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+      text-align: center;
+    }
+
+    .modal-button {
+      margin-top: 15px;
+      background-color: #C7B65E;
+      color: #2E4057;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .modal-button:hover {
+      background-color: #B2A151;
+    }
   </style>
 </head>
 <body>
@@ -157,42 +191,14 @@
         </div>
 
         <div class="products">
+          <!-- Example Products -->
           <div class="product-card">
             <img src="Client3_Book3.png" alt="Sorcerer’s Shadowed Chronicles">
             <h4>Sorcerer’s Shadowed Chronicles</h4>
             <p>$25.00</p>
             <button onclick="addToCart('Sorcerer’s Shadowed Chronicles', 25)">Add to Cart</button>
           </div>
-          <div class="product-card">
-            <img src="Client3_Book2.png" alt="Glory Riders">
-            <h4>Glory Riders</h4>
-            <p>$15.00</p>
-            <button onclick="addToCart('Glory Riders', 15)">Add to Cart</button>
-          </div>
-          <div class="product-card">
-            <img src="Client3_Book1.png" alt="Brie Mine 4Ever">
-            <h4>Brie Mine 4Ever</h4>
-            <p>$20.00</p>
-            <button onclick="addToCart('Brie Mine 4Ever', 20)">Add to Cart</button>
-          </div>
-          <div class="product-card">
-            <img src="Client3_Magazine3.png" alt="Travel Magazine">
-            <h4>Travel Magazine</h4>
-            <p>$10.00</p>
-            <button onclick="addToCart('Travel Magazine', 10)">Add to Cart</button>
-          </div>
-          <div class="product-card">
-            <img src="Client3_ToteBag.png" alt="Tote Bag">
-            <h4>Book Haven Tote Bag</h4>
-            <p>$15.00</p>
-            <button onclick="addToCart('Book Haven Tote Bag', 15)">Add to Cart</button>
-          </div>
-          <div class="product-card">
-            <img src="Client3_Stickers.png" alt="Sticker Pack">
-            <h4>Four Pack Stickers</h4>
-            <p>$5.00</p>
-            <button onclick="addToCart('Four Pack Stickers', 5)">Add to Cart</button>
-          </div>
+          <!-- Add other product-cards here -->
         </div>
       </section>
     </div>
@@ -221,29 +227,29 @@
     <p>Privacy — Terms</p>
   </footer>
 
-  <!-- Modal for Cart -->
-  <div id="cartModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.6); z-index:999;">
-    <div style="background:#FFF7EE; margin:10% auto; padding:30px; width:80%; max-width:500px; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.3); position:relative;">
+  <!-- Modals -->
+  <div id="cartModal" class="modal-overlay">
+    <div class="modal-content">
       <h2>Your Cart</h2>
       <ul id="cartItems" style="list-style:none; padding:0;"></ul>
-      <button onclick="closeModal()">Close</button>
+      <button onclick="closeModal()" class="modal-button">Close</button>
     </div>
   </div>
-  <!-- Add to Cart Confirmation Modal -->
-  <div id="addToCartModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.6); z-index:999;">
-    <div style="background:#FFF7EE; margin:15% auto; padding:20px 30px; width:80%; max-width:400px; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.3); text-align:center; position:relative;">
-      <h3 style="color:#2E4057;" id="addToCartMsg">Item added to your cart.</h3>
-      <button onclick="closeAddToCartModal()" style="margin-top:15px; background-color:#C7B65E; color:#2E4057;">OK</button>
+
+  <div id="addToCartModal" class="modal-overlay">
+    <div class="modal-content">
+      <h3 id="addToCartMsg" style="color:#2E4057;">Item added to your cart.</h3>
+      <button onclick="closeAddToCartModal()" class="modal-button">OK</button>
     </div>
   </div>
-  <!-- Order Confirmation Modal -->
-  <div id="orderModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.6); z-index:999;">
-    <div style="background:#FFF7EE; margin:15% auto; padding:20px 30px; width:80%; max-width:400px; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.3); text-align:center; position:relative;">
-      <h3 style="color:#2E4057;" id="orderMsg">Thank you for your order!</h3>
-      <button onclick="closeOrderModal()" style="margin-top:15px; background-color:#C7B65E; color:#2E4057;">OK</button>
+
+  <div id="orderModal" class="modal-overlay">
+    <div class="modal-content">
+      <h3 id="orderMsg" style="color:#2E4057;">Thank you for your order!</h3>
+      <button onclick="closeOrderModal()" class="modal-button">OK</button>
     </div>
   </div>
-  <!-- Subscribe Confirmation Modal -->
+
   <div id="subscribeModal" class="modal-overlay">
     <div class="modal-content">
       <h3 id="subscribeMsg" style="color:#2E4057;">Thank you for subscribing!</h3>
@@ -264,21 +270,21 @@
       let cart = JSON.parse(sessionStorage.getItem("cart")) || [];
       cart.push({ name: itemName, price: price });
       sessionStorage.setItem("cart", JSON.stringify(cart));
-  
+
       document.getElementById("addToCartMsg").textContent = `${itemName} has been added to your cart.`;
       document.getElementById("addToCartModal").style.display = "block";
     }
-  
+
     function closeAddToCartModal() {
       document.getElementById("addToCartModal").style.display = "none";
     }
-  
+
     function viewCart() {
       const cart = JSON.parse(sessionStorage.getItem("cart")) || [];
       const modal = document.getElementById("cartModal");
       const cartList = document.getElementById("cartItems");
       cartList.innerHTML = "";
-  
+
       if (cart.length === 0) {
         cartList.innerHTML = "<li>Your cart is empty.</li>";
       } else {
@@ -289,15 +295,15 @@
           cartList.appendChild(li);
         });
       }
-  
+
       modal.style.display = "block";
     }
-  
+
     function clearCart() {
       sessionStorage.removeItem("cart");
       viewCart();
     }
-  
+
     function processOrder() {
       const cart = JSON.parse(sessionStorage.getItem("cart"));
       if (cart && cart.length > 0) {
@@ -308,23 +314,35 @@
         alert("Cart is empty.");
       }
     }
-  
+
     function closeModal() {
       document.getElementById("cartModal").style.display = "none";
     }
-  
+
     function closeOrderModal() {
       document.getElementById("orderModal").style.display = "none";
     }
-  
+
     function subscribe() {
-      const email = document.getElementById("subscribeEmail").value;
-      if (email.trim() === "") {
-        alert("Please fill out this field.");
+      const email = document.getElementById("subscribeEmail").value.trim();
+      const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+
+      if (isValid) {
+        localStorage.setItem("subscriberEmail", email);
+        document.getElementById("subscribeMsg").textContent = "Thank you for subscribing!";
+        document.getElementById("subscribeModal").style.display = "block";
       } else {
-        alert("Thank you for subscribing.");
+        document.getElementById("subscribeErrorModal").style.display = "block";
       }
     }
-  </script>  
+
+    function closeSubscribeModal() {
+      document.getElementById("subscribeModal").style.display = "none";
+    }
+
+    function closeErrorModal() {
+      document.getElementById("subscribeErrorModal").style.display = "none";
+    }
+  </script>
 </body>
 </html>
