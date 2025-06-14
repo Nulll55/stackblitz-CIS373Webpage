@@ -228,13 +228,26 @@
       <button onclick="closeModal()">Close</button>
     </div>
   </div>
+  <!-- Add to Cart Confirmation Modal -->
+  <div id="addToCartModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background-color:rgba(0,0,0,0.6); z-index:999;">
+    <div style="background:#FFF7EE; margin:15% auto; padding:20px 30px; width:80%; max-width:400px; border-radius:12px; box-shadow:0 2px 8px rgba(0,0,0,0.3); text-align:center; position:relative;">
+      <h3 style="color:#2E4057;" id="addToCartMsg">Item added to your cart.</h3>
+      <button onclick="closeAddToCartModal()" style="margin-top:15px; background-color:#C7B65E; color:#2E4057;">OK</button>
+    </div>
+  </div>
 
   <script>
     function addToCart(itemName, price) {
       let cart = JSON.parse(sessionStorage.getItem("cart")) || [];
       cart.push({ name: itemName, price: price });
       sessionStorage.setItem("cart", JSON.stringify(cart));
-      alert(`${itemName} has been added to your cart.`);
+
+      document.getElementById("addToCartMsg").textContent = `${itemName} has been added to your cart.`;
+      document.getElementById("addToCartModal").style.display = "block";
+    }
+
+    function closeAddToCartModal() {
+      document.getElementById("addToCartModal").style.display = "none";
     }
 
     function viewCart() {
