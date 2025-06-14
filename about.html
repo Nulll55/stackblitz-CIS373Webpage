@@ -246,25 +246,43 @@
       const name = document.getElementById("name").value.trim();
       const email = document.getElementById("email").value.trim();
       const message = document.getElementById("message").value.trim();
-
+  
       if (!name || !email || !message) {
         alert("Please enter your name, email, and feedback.");
         return false;
       }
-
-      alert("Thank you for your message, " + name + "!");
-      return true;
+  
+      // Create a custom order object
+      const customOrder = {
+        name: name,
+        email: email,
+        message: message,
+        timestamp: new Date().toISOString()
+      };
+  
+      // Get existing orders from localStorage (if any)
+      let orders = JSON.parse(localStorage.getItem("customOrders")) || [];
+  
+      // Add the new order
+      orders.push(customOrder);
+  
+      // Save back to localStorage
+      localStorage.setItem("customOrders", JSON.stringify(orders));
+  
+      alert("Thank you for your message, " + name + "! Your request has been saved.");
+  
+      // Optional: Clear form after submit
+      clearForm();
+  
+      return false; // Prevent default form submission
     }
-
+  
     function clearForm() {
       document.getElementById("name").value = "";
       document.getElementById("email").value = "";
       document.getElementById("message").value = "";
     }
-    function addToCart() {
-      alert("Item added to the cart.");
-    }
-
+  
     function subscribe() {
       const email = document.getElementById("subscribeEmail").value;
       if (email.trim() === "") {
@@ -273,6 +291,6 @@
         alert("Thank you for subscribing.");
       }
     }
-  </script> 
+  </script>
 </body>
 </html>
