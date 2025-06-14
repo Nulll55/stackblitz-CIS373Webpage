@@ -235,34 +235,42 @@
       <button onclick="closeModal()" class="modal-button">Close</button>
     </div>
   </div>
-
+ <!-- add item successful -->
   <div id="addToCartModal" class="modal-overlay">
     <div class="modal-content">
       <h3 id="addToCartMsg" style="color:#2E4057;">Item added to your cart.</h3>
       <button onclick="closeAddToCartModal()" class="modal-button">OK</button>
     </div>
   </div>
-
+  <!-- process order successful -->
   <div id="orderModal" class="modal-overlay">
     <div class="modal-content">
       <h3 id="orderMsg" style="color:#2E4057;">Thank you for your order!</h3>
       <button onclick="closeOrderModal()" class="modal-button">OK</button>
     </div>
   </div>
-
+  <!-- subscribe thank you -->
   <div id="subscribeModal" class="modal-overlay">
     <div class="modal-content">
       <h3 id="subscribeMsg" style="color:#2E4057;">Thank you for subscribing!</h3>
       <button onclick="closeSubscribeModal()" class="modal-button">OK</button>
     </div>
   </div>
-
+  <!-- subscribe validation -->
   <div id="subscribeErrorModal" class="modal-overlay">
     <div class="modal-content">
       <h3 style="color:#2E4057;">Please enter a valid email address before subscribing.</h3>
       <button onclick="closeErrorModal()" class="modal-button">OK</button>
     </div>
   </div>
+
+  <!-- Empty Cart Modal -->
+<div id="emptyCartModal" class="modal-overlay">
+  <div class="modal-content">
+    <h3 style="color:#2E4057;">Your cart is already empty.</h3>
+    <button onclick="closeEmptyCartModal()" class="modal-button">OK</button>
+  </div>
+</div>
 
   <!-- JavaScript Functions -->
   <script>
@@ -300,9 +308,18 @@
     }
 
     function clearCart() {
-      sessionStorage.removeItem("cart");
-      viewCart();
+      const cart = JSON.parse(sessionStorage.getItem("cart")) || [];
+      if (cart.length === 0) {
+        document.getElementById("emptyCartModal").style.display = "block";
+      } else {
+        sessionStorage.removeItem("cart");
+        viewCart();
+      }
     }
+
+function closeEmptyCartModal() {
+  document.getElementById("emptyCartModal").style.display = "none";
+}
 
     function processOrder() {
       const cart = JSON.parse(sessionStorage.getItem("cart"));
