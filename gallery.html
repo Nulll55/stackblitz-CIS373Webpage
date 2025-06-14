@@ -213,7 +213,8 @@
     </div>
     <div class="newsletter">
       <p><strong>Subscribe to our newsletter</strong></p>
-      <input type="email" id="subscribeEmail" placeholder="Email" /><br />
+      <input type="email" id="subscribeEmail" placeholder="Email" />
+      <br />
       <button onclick="subscribe()">Subscribe</button>
     </div>
     <p>© 2020 – 2030 Book Haven Bookstore</p>
@@ -242,7 +243,22 @@
       <button onclick="closeOrderModal()" style="margin-top:15px; background-color:#C7B65E; color:#2E4057;">OK</button>
     </div>
   </div>
+  <!-- Subscribe Confirmation Modal -->
+  <div id="subscribeModal" class="modal-overlay">
+    <div class="modal-content">
+      <h3 id="subscribeMsg" style="color:#2E4057;">Thank you for subscribing!</h3>
+      <button onclick="closeSubscribeModal()" class="modal-button">OK</button>
+    </div>
+  </div>
 
+  <div id="subscribeErrorModal" class="modal-overlay">
+    <div class="modal-content">
+      <h3 style="color:#2E4057;">Please enter a valid email address before subscribing.</h3>
+      <button onclick="closeErrorModal()" class="modal-button">OK</button>
+    </div>
+  </div>
+
+  <!-- JavaScript Functions -->
   <script>
     function addToCart(itemName, price) {
       let cart = JSON.parse(sessionStorage.getItem("cart")) || [];
