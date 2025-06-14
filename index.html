@@ -276,15 +276,23 @@
     </div>
   </div>
 
+  <!-- Subscribe Error Modal -->
+  <div id="subscribeErrorModal" class="modal-overlay">
+    <div class="modal-content">
+      <h3 style="color:#2E4057;">Please enter a valid email address before subscribing.</h3>
+      <button onclick="closeErrorModal()" class="modal-button">OK</button>
+    </div>
+  </div>
+
   <!-- JavaScript Functions -->
   <script>
     function addToCart() {
       alert("Item added to the cart.");
     }
     function subscribe() {
-      const email = document.getElementById("subscribeEmail").value;
-      if (email.trim() === "") {
-        alert("Please fill out this field.");
+      const email = document.getElementById("subscribeEmail").value.trim();
+      if (email === "") {
+        document.getElementById("subscribeErrorModal").style.display = "block";
       } else {
         document.getElementById("subscribeMsg").textContent = "Thank you for subscribing, " + email + "!";
         document.getElementById("subscribeModal").style.display = "block";
@@ -294,6 +302,10 @@
 
     function closeSubscribeModal() {
       document.getElementById("subscribeModal").style.display = "none";
+    }
+
+    function closeErrorModal() {
+      document.getElementById("subscribeErrorModal").style.display = "none";
     }
   </script>
 </body>
